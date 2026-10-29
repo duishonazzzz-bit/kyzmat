@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 76" role="img" aria-labelledby="title desc">
+  <title id="title">KYZMAT</title>
+  <desc id="desc">Фирменный логотип KYZMAT с мотивами стройки и IT.</desc>
+  <defs>
+    <style>
+      .brand { fill: #981b37; }
+      .cut { fill: #f7efe9; }
+      .accent { fill: #c56b82; }
+    </style>
+  </defs>
+
+  <g class="brand">
+    <path d="M18 16h14v44H18z" />
+    <path d="M28 10h22c4 0 7 3 7 7v5H38z" />
+    <path d="M54 16h18L38 44H25z" />
+    <path d="M35 40h14l29 20H59z" />
+
+    <path d="M111 16h17l18 18 18-18h17l-27 28v16h-15V44z" />
+    <path d="M141 4h10l6 8h-6v10h-10V12h-6z" />
+
+    <path d="M210 16h60v11l-33 18 35 1v11l-62 3v-11l34-19-34-1z" />
+    <path class="cut" d="M235 34h18l-15 9h-18z" />
+    <path class="cut" d="M242 48h18l-15 9h-18z" />
+
+    <path d="M301 60V16h14l17 21 17-21h14v44h-14V37l-14 17h-6l-14-17v23z" />
+    <path class="accent" d="M332 18h3v24h-3z" />
+    <circle class="accent" cx="333.5" cy="17" r="3.5" />
+    <circle class="accent" cx="321" cy="29" r="3" />
+    <circle class="accent" cx="346" cy="29" r="3" />
+    <path class="accent" d="M321 28h25v2h-25z" />
+
+    <path d="M396 60 418 16h16l23 44h-15l-4-9h-24l-4 9z" />
+    <path class="cut" d="M419 41h14l-7-17z" />
+    <path class="cut" d="M426 24h8l-6 12h8l-16 18 4-13h-8z" />
+
+    <path d="M495 16h67v12h-26v32h-15V28h-26z" />
+    <path d="M526 28h8v19l15 13h-10l-13-11z" />
+    <path d="M562 16h20c4 0 6 2 6 6v5h-8v-3h-18z" />
+  </g>
+</svg>
