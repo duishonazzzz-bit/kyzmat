@@ -1,0 +1,17 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <circle cx="256" cy="186" r="86" fill="#F4D6C5"/>
+  <path d="M170 192C170 136 210 96 266 96C311 96 347 127 356 170C328 160 302 143 288 124C248 160 205 181 170 192Z" fill="#5D1B2C"/>
+  <path d="M146 420C160 334 202 286 256 286C310 286 352 334 366 420H146Z" fill="#8D1530"/>
+  <path d="M192 304C209 334 233 350 256 350C279 350 303 334 320 304L350 340C327 382 292 412 256 412C220 412 185 382 162 340L192 304Z" fill="#F0E7EA" opacity="0.88"/>
+  <circle cx="224" cy="186" r="9" fill="#5D1B2C"/>
+  <circle cx="288" cy="186" r="9" fill="#5D1B2C"/>
+  <path d="M228 230C246 244 266 244 284 230" stroke="#8A4A4A" stroke-linecap="round" stroke-width="8"/>
+  <defs>
+    <linearGradient id="bg" x1="84" y1="52" x2="432" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF7F8"/>
+      <stop offset="0.52" stop-color="#F7E7EB"/>
+      <stop offset="1" stop-color="#EFE1E6"/>
+    </linearGradient>
+  </defs>
+</svg>
