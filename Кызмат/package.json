@@ -1,0 +1,38 @@
+{
+  "name": "kyzmat-marketplace",
+  "private": true,
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "workspaces": [
+    "apps/web",
+    "apps/api"
+  ],
+  "scripts": {
+    "dev:web": "npm --workspace apps/web run dev",
+    "dev:api": "npm --workspace apps/api run dev",
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
+    "build:web:fallback": "node scripts/build-web-fallback.mjs",
+    "dev:start": "node scripts/dev-control.mjs start",
+    "dev:stop": "node scripts/dev-control.mjs stop",
+    "dev:restart": "node scripts/dev-control.mjs restart",
+    "dev:status": "node scripts/dev-control.mjs status",
+    "start": "node apps/api/src/server.js",
+    "db:doctor": "node scripts/db-doctor.cjs",
+    "db:restore-memory": "node scripts/db-restore-memory-to-postgres.cjs",
+    "prod:start": "node scripts/prod-control.mjs start",
+    "prod:stop": "node scripts/prod-control.mjs stop",
+    "prod:restart": "node scripts/prod-control.mjs restart",
+    "prod:status": "node scripts/prod-control.mjs status",
+    "build": "npm --workspace apps/web run build",
+    "seed:demo": "node scripts/seed-demo-data.js",
+    "cleanup:demo": "node scripts/cleanup-demo-data.cjs",
+    "deploy:up": "docker compose --env-file .env.production -f docker-compose.prod.yml up -d --build",
+    "deploy:down": "docker compose --env-file .env.production -f docker-compose.prod.yml down",
+    "deploy:logs": "docker compose --env-file .env.production -f docker-compose.prod.yml logs -f"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}

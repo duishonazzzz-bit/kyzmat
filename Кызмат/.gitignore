@@ -1,0 +1,13 @@
+﻿node_modules/
+apps/*/node_modules/
+apps/web/dist/
+logs/
+/.tools/
+/.presentation-tools/
+/tools/cloudflared.exe
+.env
+.env.production
+apps/api/.env
+apps/web/.env
+apps/api/.data/
+.DS_Store

@@ -1,0 +1,12 @@
+node_modules
+apps/*/node_modules
+apps/*/dist
+logs
+.git
+.gitignore
+.env
+.env.production
+apps/api/.env
+apps/web/.env
+apps/api/.data
+npm-debug.log
