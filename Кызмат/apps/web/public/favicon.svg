@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="KYZMAT">
+  <rect width="64" height="64" rx="18" fill="#981b37" />
+  <g fill="#f7efe9">
+    <path d="M15 16h8v31h-8z" />
+    <path d="M21 12h13c3 0 5 2 5 5v3H26z" />
+    <path d="M37 16h10L27 33h-7z" />
+    <path d="M24 31h8l16 16H38z" />
+  </g>
+  <circle cx="45" cy="20" r="3" fill="#d28ca0" />
+  <circle cx="49" cy="28" r="2.2" fill="#d28ca0" />
+  <path d="M45 20v8h4" fill="none" stroke="#d28ca0" stroke-linecap="round" stroke-width="2.2" />
+</svg>
