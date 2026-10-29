@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ky">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fcf8f4">
+  <title>KYZMAT — кызмат жана адис бир жерде</title>
+  <style>
+    :root{--bg:#fcf8f4;--soft:#f3ebe4;--ink:#211d20;--muted:#6f686a;--brand:#8d1530;--brand-dark:#6d1025;--rose:#f5e8ea;--teal:#0f766e;--teal-light:#e6f2ee;--line:#e8e0db;--white:#fff;--shadow:0 20px 55px -36px rgba(56,18,30,.25)}
+    *{box-sizing:border-box}html,body{height:100%;margin:0}body{display:grid;place-items:center;overflow:hidden;background:radial-gradient(920px 460px at 100% -6%,rgba(141,21,48,.12),transparent 55%),radial-gradient(720px 360px at -8% 10%,rgba(70,24,39,.08),transparent 42%),linear-gradient(180deg,var(--bg),var(--soft));color:var(--ink);font-family:"Manrope","Segoe UI",Arial,sans-serif}
+    button{font:inherit}.frame{position:relative;width:min(100vw,177.7778vh);height:min(100vh,56.25vw);aspect-ratio:16/9;overflow:hidden;background:var(--bg);box-shadow:0 30px 100px -50px rgba(33,29,32,.5);isolation:isolate}.frame:before,.frame:after{content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none;filter:blur(1px)}.frame:before{width:40%;aspect-ratio:1;right:-9%;top:-20%;background:radial-gradient(circle,rgba(141,21,48,.13),rgba(141,21,48,0) 72%);animation:drift 9s ease-in-out infinite alternate}.frame:after{width:32%;aspect-ratio:1;left:-15%;bottom:-24%;background:radial-gradient(circle,rgba(15,118,110,.08),transparent 72%);animation:drift 11s ease-in-out infinite alternate-reverse}
+    .slide{position:absolute;inset:0;padding:5.3% 5.45% 6.2%;display:flex;flex-direction:column;opacity:0;visibility:hidden;transform:translateX(2.3%) scale(.99);transition:opacity .5s ease,transform .65s cubic-bezier(.22,.8,.25,1),visibility .5s;overflow:hidden}.slide.active{opacity:1;visibility:visible;transform:translateX(0) scale(1);z-index:1}.slide.dark{background:#2c2529;color:var(--white)}.slide.dark:before{content:"";position:absolute;inset:-12% -8% auto auto;width:45%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#45343c,transparent 70%);pointer-events:none}.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*100ms)}.active .reveal{opacity:1;transform:translateY(0)}
+    .logo{width:clamp(118px,18vw,250px);height:auto;object-fit:contain;object-position:left center}.eyebrow{font-size:clamp(9px,.9vw,13px);font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--brand)}.heading{font-family:"Space Grotesk","Segoe UI",sans-serif;font-size:clamp(28px,4vw,60px);line-height:1.08;letter-spacing:-.045em;margin:.38em 0 .22em;font-weight:700}.subheading{font-size:clamp(13px,1.35vw,19px);line-height:1.55;color:var(--muted);max-width:900px;margin:0}.cover{display:grid;grid-template-columns:1.02fr .98fr;gap:5%;padding-top:5%;padding-bottom:8%}.cover-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;position:relative;z-index:2}.cover .eyebrow{margin-top:8%}.cover .heading{font-size:clamp(39px,5.45vw,78px);max-width:8em;margin:.36em 0 .27em}.cover .subheading{max-width:520px;font-size:clamp(15px,1.65vw,23px)}.cover-photo{position:relative;align-self:center;height:88%;border-radius:28px;overflow:visible;padding:10px;background:#fff;box-shadow:var(--shadow);transform:rotate(1.2deg);animation:photoIn 1.1s cubic-bezier(.2,.8,.2,1) both}.cover-photo>img{width:100%;height:100%;object-fit:cover;border-radius:19px}.photo-caption{position:absolute;inset:auto 10px 10px;border-radius:0 0 19px 19px;padding:12% 8% 6%;color:#fff;background:linear-gradient(0deg,rgba(54,10,24,.91),rgba(54,10,24,0))}.photo-caption strong{display:block;max-width:85%;font:700 clamp(20px,2.5vw,35px)/1.1 "Space Grotesk","Segoe UI",sans-serif}.floating-label{position:absolute;left:-7%;top:6%;background:#fff;border:1px solid #f2e4e7;box-shadow:var(--shadow);border-radius:999px;padding:.8em 1.2em;display:flex;align-items:center;gap:.65em;font-size:clamp(10px,1.1vw,15px);font-weight:700;animation:float 4.4s ease-in-out infinite}.pulse{width:.65em;height:.65em;border-radius:50%;background:var(--teal);box-shadow:0 0 0 5px #e3f0ed}
+    .pill{display:inline-flex;align-items:center;gap:.45em;border-radius:999px;background:var(--rose);color:var(--brand);padding:.72em 1.1em;font-size:clamp(9px,.9vw,13px);font-weight:800;letter-spacing:.04em;margin-top:7%}.title-block{margin-bottom:3.4%;position:relative;z-index:1}.title-block .heading{font-size:clamp(28px,3.35vw,47px)}
+    .problem-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:3.8%;flex:1;min-height:0}.problem-lead{background:var(--brand);color:#fff;border-radius:24px;padding:9%;display:flex;flex-direction:column;justify-content:center;box-shadow:var(--shadow)}.problem-lead h2{font:700 clamp(31px,4.3vw,61px)/.98 "Space Grotesk","Segoe UI",sans-serif;letter-spacing:-.05em;margin:0 0 .45em}.problem-lead p{font-size:clamp(13px,1.35vw,18px);line-height:1.5;color:#f3dfe3;margin:0}.problem-list{display:grid;grid-template-rows:repeat(3,1fr);gap:3.3%}.problem-card{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:20px;padding:2.4% 3.5%;display:grid;grid-template-columns:.5fr 1.8fr 3fr;align-items:center;gap:2%}.problem-card .num{font:700 clamp(14px,1.5vw,21px) "Space Grotesk",sans-serif;color:var(--brand)}.problem-card h3{font:700 clamp(15px,1.85vw,26px)/1.1 "Space Grotesk","Segoe UI",sans-serif;margin:0}.problem-card p{font-size:clamp(10px,1.15vw,16px);line-height:1.45;color:var(--muted);margin:0}
+    .catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:2.3%;flex:1;min-height:0}.category{display:grid;grid-template-columns:42% 1fr;gap:4%;padding:2.4%;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;align-items:center;min-height:0}.category img{width:100%;height:100%;max-height:155px;object-fit:cover;border-radius:14px}.category .label{color:var(--brand);font-size:clamp(8px,.78vw,11px);font-weight:800;letter-spacing:.12em}.category h3{font:700 clamp(14px,1.5vw,21px)/1.15 "Space Grotesk","Segoe UI",sans-serif;margin:.7em 0 0}.catalog-foot{border-radius:14px;background:var(--teal-light);padding:1% 2%;margin-top:2%;font-size:clamp(9px,.9vw,13px);font-weight:800;letter-spacing:.04em;color:var(--teal);text-align:center}
+    .steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:2%;flex:1;align-items:stretch;min-height:0}.steps:before{content:"";height:2px;position:absolute;top:20%;left:10%;right:10%;background:#ddc9ce}.step{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;padding:6% 7% 5%;min-height:0;box-shadow:var(--shadow)}.step-number{position:relative;z-index:1;width:clamp(40px,5vw,70px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:#fff;font:700 clamp(12px,1.2vw,17px) "Space Grotesk",sans-serif;box-shadow:0 0 0 7px var(--bg)}.step:last-child .step-number{background:var(--teal)}.step h3{font:700 clamp(16px,1.7vw,24px)/1.15 "Space Grotesk","Segoe UI",sans-serif;margin:1.2em 0 .65em}.step p{font-size:clamp(11px,1.15vw,16px);line-height:1.5;color:var(--muted);margin:0}.step .micro{position:static;display:block;margin-top:auto;padding-top:1.4em;font-size:clamp(8px,.76vw,11px);letter-spacing:.12em;color:var(--brand);font-weight:800}.map-note{display:flex;align-items:center;gap:1em;background:var(--teal-light);border-radius:15px;padding:1.4% 2.4%;color:var(--teal);font-size:clamp(11px,1.1vw,16px);font-weight:700;margin-top:2%}.map-pin{height:12px;width:12px;border:3px solid #fff;box-shadow:0 0 0 2px var(--teal);border-radius:50%;background:var(--teal);flex:none}
+    .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:3%;flex:1;min-height:0}.role-card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}.role-card header{padding:3.3% 5%;background:var(--brand);color:#fff;font-size:clamp(10px,1vw,14px);font-weight:800;letter-spacing:.14em}.role-card.worker header{background:var(--teal)}.role-body{padding:2% 5%}.role-body p{display:flex;align-items:center;gap:.9em;font-size:clamp(12px,1.2vw,17px);line-height:1.35;margin:4.2% 0}.role-body p:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brand);flex:none}.worker .role-body p:before{background:var(--teal)}.trust-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1.7%;margin-top:2.5%}.trust-item{border-radius:14px;padding:1.4% 1%;background:var(--rose);text-align:center}.trust-item:last-child{background:var(--teal-light)}.trust-item strong{display:block;color:var(--brand);font-size:clamp(8px,.8vw,11px);letter-spacing:.1em}.trust-item:last-child strong{color:var(--teal)}.trust-item small{display:block;margin-top:.5em;color:var(--muted);font-size:clamp(8px,.75vw,11px)}
+    .close .heading{font-size:clamp(39px,5.4vw,77px);max-width:8em;margin:.4em 0 .25em}.close .subheading{color:#e4dde0}.close .logo{filter:brightness(0) invert(1);opacity:.96}.close .eyebrow{color:#e7adb7}.close-row{display:grid;grid-template-columns:repeat(3,1fr);gap:4%;width:min(75%,860px);margin-top:5%}.close-point{display:grid;grid-template-columns:auto 1fr;column-gap:1em;align-items:start}.close-point b{color:#e7adb7;font:700 clamp(12px,1.25vw,18px) "Space Grotesk",sans-serif}.close-point strong{font:700 clamp(14px,1.45vw,21px) "Space Grotesk",sans-serif}.close-point small{grid-column:2;color:#c9bec2;font-size:clamp(9px,.95vw,13px);margin-top:.5em}.thanks{position:absolute;right:9%;bottom:20%;border-radius:16px;background:var(--brand);padding:1.25em 2em;font:700 clamp(15px,1.8vw,25px) "Space Grotesk",sans-serif;box-shadow:0 12px 35px -15px rgba(0,0,0,.45);animation:float 4s ease-in-out infinite}
+    .controls{position:absolute;z-index:10;left:0;right:0;bottom:0;height:5.1%;min-height:36px;display:flex;align-items:center;gap:12px;padding:0 2.4%;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-top:1px solid rgba(232,224,219,.8)}.dark~.controls{color:var(--ink)}.control-btn{border:0;background:transparent;color:var(--brand);cursor:pointer;border-radius:7px;padding:4px 9px;font-size:clamp(10px,.95vw,14px);font-weight:800}.control-btn:hover{background:var(--rose)}.counter{font-size:clamp(9px,.8vw,12px);color:var(--muted);font-variant-numeric:tabular-nums;min-width:4.5em}.progress{height:4px;border-radius:99px;background:#eee7e3;flex:1;overflow:hidden}.progress span{display:block;height:100%;width:16.6667%;background:var(--brand);transition:width .5s ease}.controls .spacer{flex:1}.hint{color:#8a8183;font-size:clamp(8px,.75vw,11px)}
+    .notes-panel{position:absolute;z-index:20;right:2%;bottom:7%;width:min(42%,550px);max-height:55%;overflow:auto;background:rgba(44,37,41,.96);color:#fff;border:1px solid rgba(255,255,255,.16);box-shadow:0 25px 60px -30px #000;border-radius:18px;padding:2.5%;font-size:clamp(11px,1.05vw,15px);line-height:1.55;opacity:0;transform:translateY(12px);visibility:hidden;transition:.24s}.notes-panel.open{opacity:1;transform:translateY(0);visibility:visible}.notes-panel b{display:block;color:#e7adb7;margin-bottom:.8em;font-size:.82em;letter-spacing:.12em;text-transform:uppercase}
+    @keyframes drift{to{transform:translate(-6%,8%) scale(1.08)}}@keyframes float{50%{transform:translateY(-8px)}}@keyframes photoIn{from{opacity:0;transform:translateY(25px) rotate(3deg)}to{opacity:1;transform:translateY(0) rotate(1.2deg)}}
+    @media(max-aspect-ratio:4/3){.heading{font-size:clamp(22px,5vw,42px)}.slide{padding:4% 4% 8%}.category{grid-template-columns:38% 1fr}.category h3{font-size:clamp(11px,2vw,18px)}.cover .heading{font-size:clamp(32px,7vw,55px)}.problem-layout{grid-template-columns:.8fr 1.2fr}.problem-card{grid-template-columns:.4fr 1.7fr 2.4fr}.step{padding:7% 6%}.role-body p{margin:3.2% 0}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <main class="frame" aria-label="KYZMAT презентациясы">
+    <section class="slide cover active" aria-label="1-слайд">
+      <div class="cover-copy">
+        <img class="logo reveal" style="--i:0" src="assets/kyzmat-logo.png" alt="KYZMAT">
+        <div class="eyebrow reveal" style="--i:1">Кыргызстан боюнча кызматтар платформасы</div>
+        <h1 class="heading reveal" style="--i:2">Кызмат табуу —<br>адис тандоо —<br>бир жерде.</h1>
+        <p class="subheading reveal" style="--i:3">KYZMAT кардарлар менен адистерди Кыргызстан боюнча бириктирет.</p>
+        <div class="pill reveal" style="--i:4">ТАПШЫРМА&nbsp; · &nbsp;АДИС&nbsp; · &nbsp;БАЙЛАНЫШ</div>
+      </div>
+      <div class="cover-photo reveal" style="--i:2">
+        <img src="assets/repair.jpg" alt="Жыгач устасы иштеп жатат">
+        <div class="photo-caption"><strong>Керектүү адам менен керектүү иш бир жерде.</strong></div>
+        <div class="floating-label"><span class="pulse"></span>Жергиликтүү кызматтар</div>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="2-слайд">
+      <header class="title-block reveal" style="--i:0"><div class="eyebrow">Мүмкүнчүлүк</div><h2 class="heading">Адис издөө эмне үчүн түйшүк жаратат?</h2><p class="subheading">Бөлөк-бөлөк издөө кардарга да, кызмат сунуштаган адиске да убакыт алат.</p></header>
+      <div class="problem-layout">
+        <div class="problem-lead reveal" style="--i:1"><h2>ИЗДӨӨ<br>ТУШ-ТАРАПТА.</h2><p>Маалымат ар башка жерде болгондо, туура тандоо кыйындайт.</p></div>
+        <div class="problem-list">
+          <article class="problem-card reveal" style="--i:2"><b class="num">01</b><h3>Убакыт кетет</h3><p>Керектүү адисти ар кайсы жерден издөөгө туура келет.</p></article>
+          <article class="problem-card reveal" style="--i:3"><b class="num">02</b><h3>Салыштыруу кыйын</h3><p>Бааны, мөөнөттү жана шарттарды бирге карап чыгуу оңой эмес.</p></article>
+          <article class="problem-card reveal" style="--i:4"><b class="num">03</b><h3>Кардарга жетүү оор</h3><p>Адиске ылайыктуу жаңы тапшырмаларды табуу өзүнчө аракетти талап кылат.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="3-слайд">
+      <header class="title-block reveal" style="--i:0"><div class="eyebrow">Платформа</div><h2 class="heading">Көп кызмат багыты — бир каталогдо</h2><p class="subheading">Издөөңүздү керектүү багыт жана шаар боюнча тактаңыз.</p></header>
+      <div class="catalog-grid">
+        <article class="category reveal" style="--i:1"><img src="assets/repair.jpg" alt="Оңдоо"><div><div class="label">ОҢДОО</div><h3>Оңдоо жана курулуш</h3></div></article>
+        <article class="category reveal" style="--i:2"><img src="assets/cleaning.jpg" alt="Үй кызматтары"><div><div class="label">ҮЙ</div><h3>Үй кызматтары</h3></div></article>
+        <article class="category reveal" style="--i:3"><img src="assets/beauty.jpg" alt="Сулуулук"><div><div class="label">СУЛУУЛУК</div><h3>Сулуулук жана кам көрүү</h3></div></article>
+        <article class="category reveal" style="--i:4"><img src="assets/it.jpg" alt="IT"><div><div class="label">IT</div><h3>IT жана онлайн кызматтар</h3></div></article>
+        <article class="category reveal" style="--i:5"><img src="assets/courier.jpg" alt="Жеткирүү"><div><div class="label">ЖЕТКИРҮҮ</div><h3>Жеткирүү жана ташуу</h3></div></article>
+        <article class="category reveal" style="--i:6"><img src="assets/tutors.jpg" alt="Окутуу"><div><div class="label">БИЛИМ</div><h3>Окутуу жана репетиторлор</h3></div></article>
+      </div>
+      <div class="catalog-foot reveal" style="--i:7">КЫРГЫЗСТАН БОЮНЧА ИЗДӨӨ &nbsp;·&nbsp; ШААРДЫ ТАНДОО &nbsp;·&nbsp; КЫЗМАТТЫН ТҮРҮН ТАКТОО</div>
+    </section>
+
+    <section class="slide" aria-label="4-слайд">
+      <header class="title-block reveal" style="--i:0"><div class="eyebrow">Кантип иштейт?</div><h2 class="heading">Суроодон сүйлөшүүгө — төрт кадам</h2><p class="subheading">Тапшырманы жарыялап же каталогдон адис тандап баштаңыз.</p></header>
+      <div class="steps">
+        <article class="step reveal" style="--i:1"><div class="step-number">01</div><h3>Тапшырма жарыялаңыз</h3><p>Ишиңизди сүрөттөп, шарттарын белгилеңиз.</p><small class="micro">ЖАРЫЯЛОО</small></article>
+        <article class="step reveal" style="--i:2"><div class="step-number">02</div><h3>Сунуштарды кабыл алыңыз</h3><p>Адистердин жоопторун жана шарттарын көрүңүз.</p><small class="micro">ЖООПТОР</small></article>
+        <article class="step reveal" style="--i:3"><div class="step-number">03</div><h3>Салыштырып тандаңыз</h3><p>Профиль, рейтинг, пикир жана сунуштарды караңыз.</p><small class="micro">ТАНДОО</small></article>
+        <article class="step reveal" style="--i:4"><div class="step-number">04</div><h3>Чатта макулдашыңыз</h3><p>Деталдарды адис менен түз сүйлөшүңүз.</p><small class="micro">БАЙЛАНЫШ</small></article>
+      </div>
+      <div class="map-note reveal" style="--i:5"><span class="map-pin"></span>Дарекке баруучу кызматтар үчүн — картадагы чекит жана маршрут.</div>
+    </section>
+
+    <section class="slide" aria-label="5-слайд">
+      <header class="title-block reveal" style="--i:0"><div class="eyebrow">Платформанын мүмкүнчүлүктөрү</div><h2 class="heading">Кардарга да, адиске да өз мейкиндиги бар</h2><p class="subheading">Тапшырмалар, профилдер жана баарлашуу бир иш агымына бириккен.</p></header>
+      <div class="role-grid">
+        <article class="role-card reveal" style="--i:1"><header>КАРДАР ҮЧҮН</header><div class="role-body"><p>Тапшырма түзүү жана шарттарын берүү</p><p>Адистердин жоопторун көрүү</p><p>Профилдерди салыштырып, адис тандоо</p><p>Статусту көзөмөлдөп, чатта сүйлөшүү</p></div></article>
+        <article class="role-card worker reveal" style="--i:2"><header>АДИС ҮЧҮН</header><div class="role-body"><p>Профиль жана тажрыйбаңызды көрсөтүү</p><p>Тапшырмаларды багыт жана шарт боюнча издөө</p><p>Кардарга сунуш жөнөтүп, шарттарды сүйлөшүү</p><p>Кабинеттен иштерди жана тарыхты башкаруу</p></div></article>
+      </div>
+      <div class="trust-strip">
+        <div class="trust-item reveal" style="--i:3"><strong>ПРОФИЛЬ</strong><small>тажрыйба жана багыт</small></div>
+        <div class="trust-item reveal" style="--i:4"><strong>РЕЙТИНГ</strong><small>баалоолорду карап чыгуу</small></div>
+        <div class="trust-item reveal" style="--i:5"><strong>ПИКИРЛЕР</strong><small>башкалардын тажрыйбасы</small></div>
+        <div class="trust-item reveal" style="--i:6"><strong>ЧАТ + КАРТА</strong><small>түз байланыш жана маршрут</small></div>
+      </div>
+    </section>
+
+    <section class="slide dark close" aria-label="6-слайд">
+      <img class="logo reveal" style="--i:0" src="assets/kyzmat-logo.png" alt="KYZMAT">
+      <div class="eyebrow reveal" style="--i:1;margin-top:7%">Жыйынтык</div>
+      <h2 class="heading reveal" style="--i:2">Кызмат менен адис бир жерде жолугат.</h2>
+      <p class="subheading reveal" style="--i:3">Бир платформа. Эки тарапка тең ыңгайлуу байланыш.</p>
+      <div class="close-row">
+        <div class="close-point reveal" style="--i:4"><b>01</b><strong>Жергиликтүү</strong><small>Кыргызстан боюнча издөө</small></div>
+        <div class="close-point reveal" style="--i:5"><b>02</b><strong>Түшүнүктүү</strong><small>профиль, рейтинг, пикир</small></div>
+        <div class="close-point reveal" style="--i:6"><b>03</b><strong>Түз байланыш</strong><small>чат жана иштин абалы</small></div>
+      </div>
+      <div class="thanks reveal" style="--i:5">РАХМАТ!</div>
+    </section>
+
+    <div class="controls" aria-label="Презентацияны башкаруу">
+      <button class="control-btn" id="prev" aria-label="Мурунку слайд">←</button>
+      <button class="control-btn" id="next" aria-label="Кийинки слайд">→</button>
+      <span class="counter" id="counter">01 / 06</span><div class="progress"><span id="progress"></span></div>
+      <span class="spacer"></span><span class="hint">← → навигация&nbsp;&nbsp; · &nbsp;&nbsp;F толук экран&nbsp;&nbsp; · &nbsp;&nbsp;N текст</span>
+      <button class="control-btn" id="notesToggle" aria-label="Сүйлөө текстин көрсөтүү">Текст&nbsp; N</button>
+    </div>
+    <aside class="notes-panel" id="notesPanel" aria-live="polite"><b id="noteTitle">Сүйлөө тексти · 1-слайд</b><span id="noteText"></span></aside>
+  </main>
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    const notes = [
+      'Саламатсыздарбы! Бүгүн мен Кыргызстандагы кызматтарды издөө жана сунуштоо үчүн түзүлгөн KYZMAT платформасын тааныштырам. KYZMAT кардарга керектүү адисти табууга, ал эми адиске жаңы тапшырыктарды көрүүгө жардам берет. Негизги ой — эки тараптын жолун бир эле платформада жөнөкөйлөтүү.',
+      'Күнүмдүк турмушта адис издөө ар башка жарыялардан, тааныштардан жана топтордон башталышы мүмкүн. Андай учурда убакыт кетип, бааны, мөөнөттү жана иш шарттарын салыштыруу кыйын болот. Ал эми адиске жаңы кардарды өз алдынча табууга туура келет. KYZMAT ушул эки тараптын муктаждыгын бир мейкиндикке чогултат.',
+      'Платформада үйдү оңдоо, тазалоо, сулуулук, IT, жеткирүү, окутуу жана башка кызмат багыттары бар. Кардар кызматты багыты жана шаары боюнча издей алат. Каталог жалпы издөөдөн керектүү адистерге өтүүнү жеңилдетет.',
+      'KYZMAT менен иштөө бир нече түшүнүктүү кадамдан турат. Кардар тапшырманы жарыялайт же каталогдон адис тандайт. Андан соң сунуштарды карап, баасын, мөөнөтүн, профилин жана пикирлерин салыштырат. Тандагандан кийин деталдарын чатта сүйлөшөт. Эгер адис дарекке барса, картадагы чекит менен маршрутту колдонсо болот.',
+      'Платформа эки тарапка тең өз ишин башкарууга мүмкүнчүлүк берет. Кардар тапшырма берип, жоопторду көрүп, аткаруучуну тандап, иштин абалын көзөмөлдөй алат. Адис болсо профилин толтуруп, ылайыктуу тапшырмаларды таап, сунуш жөнөтүп, кабинеттен иштерин башкарат. Профиль, рейтинг, пикир жана түз чат тандоону түшүнүктүү кылат.',
+      'Жыйынтыктап айтканда, KYZMAT кызмат издеген адам менен өз ишин сунуштаган адисти бир жерде жолуктурууга жардам берет. Каталог издөө жолун, профилдер салыштырууну, чат болсо түз сүйлөшүүнү жеңилдетет. Платформанын максаты — жергиликтүү кызмат рыногундагы байланышты ыңгайлуу кылуу. Көңүл бурганыңыздар үчүн рахмат! Суроолоруңуздар болсо, жооп берүүгө даярмын.'
+    ];
+    let current = 0;
+    const counter = document.getElementById('counter');
+    const progress = document.getElementById('progress');
+    const notePanel = document.getElementById('notesPanel');
+    function show(index){
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide,i)=>{slide.classList.toggle('active',i===current);slide.setAttribute('aria-hidden',i===current?'false':'true')});
+      counter.textContent = `${String(current+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;
+      progress.style.width = `${((current+1)/slides.length)*100}%`;
+      document.getElementById('noteTitle').textContent = `Сүйлөө тексти · ${current+1}-слайд`;
+      document.getElementById('noteText').textContent = notes[current];
+    }
+    function toggleNotes(){notePanel.classList.toggle('open')}
+    document.getElementById('prev').addEventListener('click',()=>show(current-1));
+    document.getElementById('next').addEventListener('click',()=>show(current+1));
+    document.getElementById('notesToggle').addEventListener('click',toggleNotes);
+    document.addEventListener('keydown',e=>{
+      if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();show(current+1)}
+      else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(current-1)}
+      else if(e.key.toLowerCase()==='f'){document.fullscreenElement?document.exitFullscreen?.():document.querySelector('.frame').requestFullscreen?.()}
+      else if(e.key.toLowerCase()==='n'){toggleNotes()}
+      else if(e.key==='Escape'){notePanel.classList.remove('open')}
+    });
+    let touchX=0;document.querySelector('.frame').addEventListener('touchstart',e=>touchX=e.changedTouches[0].screenX,{passive:true});
+    document.querySelector('.frame').addEventListener('touchend',e=>{const dx=e.changedTouches[0].screenX-touchX;if(Math.abs(dx)>55)show(current+(dx<0?1:-1))},{passive:true});
+    const requestedSlide = Number.parseInt(new URLSearchParams(location.search).get('slide') || '1', 10);
+    show(Math.min(slides.length - 1, Math.max(0, Number.isFinite(requestedSlide) ? requestedSlide - 1 : 0)));
+  </script>
+</body>
+</html>
